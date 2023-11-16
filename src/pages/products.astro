@@ -1,0 +1,132 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Products">
+  <main>
+    <article class="title">
+      <h1 transition:name="title">
+        Products in <span class="text-gradient" transition:name="crediplus"
+          >CrediPlus</span
+        >
+      </h1>
+    </article>
+
+    <article class="info">
+      <div>
+        <img src="/easy-credit.png" alt="easy credit image" />
+        <div>
+          <p>^</p>
+          <p>see more!</p>
+        </div>
+      </div>
+
+      <div>
+        <img src="/card.png" alt="card image" transition:name="img-2" />
+        <div>
+          <p>^</p>
+          <p>see more!</p>
+        </div>
+      </div>
+
+      <div>
+        <img src="/earn.jpeg" alt="earn image" transition:name="img-1" />
+        <div>
+          <p>^</p>
+          <p>see more!</p>
+        </div>
+      </div>
+      <div>
+        <img src="/loan.png" alt="loan image" />
+        <div>
+          <p>^</p>
+          <p>see more!</p>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+<style>
+  main {
+    margin: auto;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+  }
+
+  .title {
+    position: relative;
+    height: 300px;
+    display: grid;
+    place-content: center;
+
+    & .title-logo {
+      position: absolute;
+      left: 30%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      height: 100px;
+      z-index: -1;
+    }
+  }
+
+  .info {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 50px;
+    place-items: center;
+    text-align: center;
+
+    & div {
+      position: relative;
+      & img {
+        border-radius: 20%;
+        border: 1px solid black;
+        transition: all 200ms ease-in-out;
+        cursor: pointer;
+      }
+
+      & img:hover{
+        padding: 20px;
+      }
+
+      & img:hover + div {
+        opacity: 1;
+      }
+
+      & div {
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        transform: translateX(-50%);
+        transition: all 200ms ease-in-out;
+        opacity: 0;
+      }
+    }
+  }
+
+  p {
+    color: black;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+    color: rgb(196, 196, 196);
+  }
+  .text-gradient {
+    background: rgb(7, 10, 99);
+    background: linear-gradient(
+      90deg,
+      rgba(7, 10, 99, 1) 0%,
+      rgba(159, 7, 7, 1) 21%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 450%;
+    background-position: 0%;
+  }
+</style>

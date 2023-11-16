@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Welcome to CrediPlus">
+  <main>
+    <article class="title">
+      <h1 transition:name="title">
+        Welcome to <span class="text-gradient" transition:name="crediplus"
+          >CrediPlus</span
+        >
+      </h1>
+    </article>
+
+    <article class="info">
+      <section>
+        <img
+          src="/easy-credit.png"
+          alt="easy credit image"
+          transition:name="img-1"
+        />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque,
+          laborum! Consectetur voluptatum possimus, rem beatae vitae unde
+          quisquam aperiam, consequuntur quos saepe excepturi corrupti eveniet.
+          Quas, asperiores? Quas, itaque similique!
+        </p>
+      </section>
+      <section>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed possimus
+          eaque explicabo, voluptate officiis maxime soluta blanditiis! Eius
+          ullam voluptas aut totam beatae, libero corrupti tempora illum rem.
+          Sed, eveniet.
+        </p>
+        <img src="/card.png" alt="card image" transition:name="img-2" />
+      </section>
+    </article>
+  </main>
+</Layout>
+<style>
+  main {
+    margin: auto;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+  }
+
+  .title {
+    position: relative;
+    height: 300px;
+    display: grid;
+    place-content: center;
+
+    & .title-logo {
+      position: absolute;
+      left: 30%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      height: 100px;
+      z-index: -1;
+    }
+  }
+
+  .info {
+    & section {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+  }
+
+  p {
+    color: black;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+    color: rgb(196, 196, 196);
+  }
+  .text-gradient {
+    background: rgb(7, 10, 99);
+    background: linear-gradient(
+      90deg,
+      rgba(7, 10, 99, 1) 0%,
+      rgba(159, 7, 7, 1) 21%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 450%;
+    background-position: 0%;
+  }
+</style>

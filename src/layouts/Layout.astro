@@ -1,0 +1,138 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/crediplus-logo.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img src="/crediplus-logo.png" alt="header-logo" />
+      </a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/services">Services</a>
+        <a href="/products">Products</a>
+        <a href="/register">Register</a>
+      </nav>
+    </header>
+    <slot />
+    <footer>
+      <div>
+        Contact: <a href="tel:+573019876562" class="contact">+57 301 987 6562</a
+        >
+      </div>
+      <div>
+        <p>&copy; 2015 crediplus.com</p>
+      </div>
+    </footer>
+    <style is:global>
+      :root {
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          rgb(var(--accent-light)) 30%,
+          white 60%
+        );
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background-size: 224px;
+      }
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+
+      header {
+        height: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid rgb(196, 196, 196);
+        box-shadow:
+          rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+          rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+        & img {
+          height: 40px;
+          cursor: pointer;
+        }
+
+        & nav {
+          height: 100%;
+          display: flex;
+          align-items: center;
+
+          & a {
+            width: 100px;
+            display: grid;
+            place-content: center;
+
+            text-decoration: none;
+            color: rgb(196, 196, 196);
+            transition: all 150ms ease-in-out;
+            height: 100%;
+          }
+
+          & a:hover {
+            background: rgb(196, 196, 196);
+            color: rgb(114, 111, 111);
+            box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
+          }
+        }
+      }
+
+      footer {
+        margin-top: 70px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        height: 50px;
+        align-items: end;
+        box-shadow: -5px -2px 43px 0px rgba(0, 0, 0, 0.44);
+        -webkit-box-shadow: -5px -2px 43px 0px rgba(0, 0, 0, 0.44);
+        -moz-box-shadow: -5px -2px 43px 0px rgba(0, 0, 0, 0.44);
+      }
+
+      .contact {
+        text-decoration: none;
+        color: rgb(26, 25, 25);
+        transition: all 200ms ease;
+        opacity: 0.6;
+      }
+      .contact:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </body>
+</html>

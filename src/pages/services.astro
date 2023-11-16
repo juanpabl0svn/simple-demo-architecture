@@ -1,0 +1,125 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Services">
+  <main>
+    <article class="title">
+      <h1 transition:name="title">
+        Services in <span class="text-gradient" transition:name="crediplus"
+          >CrediPlus</span
+        >
+      </h1>
+    </article>
+
+    <article class="info">
+      <section>
+        <img src="/loan.png" alt="easy credit image" transition:name="img-1" />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+          aperiam ut exercitationem vero nesciunt ab quae, repudiandae eum quas
+          fuga, error eos nostrum id dolore quod fugit cupiditate velit sunt?
+        </p>
+      </section>
+      <section>
+        <img src="/earn.jpeg" alt="card image" transition:name="img-2" />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+          aperiam ut exercitationem vero nesciunt ab quae, repudiandae eum quas
+          fuga, error eos nostrum id dolore quod fugit cupiditate velit sunt?
+        </p>
+      </section>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+  }
+
+  .title {
+    position: relative;
+    height: 270px;
+    display: grid;
+    place-content: center;
+
+    & .title-logo {
+      position: absolute;
+      left: 30%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      height: 100px;
+      z-index: -1;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      border: 1px solid black;
+      border-radius: 20px;
+    }
+  }
+
+  img {
+    border: 1px solid rgb(238, 221, 221);
+    border-radius: 30%;
+    cursor: pointer;
+    transition: all 200ms ease;
+  }
+
+
+  section:hover img {
+    transform: scale(1.05);
+  }
+
+  section:hover > p {
+    opacity: 1;
+    transform: translateX(300px);
+  }
+
+  section p {
+    position: absolute;
+    z-index: -1;
+    width: 40vw;
+    opacity: 0;
+    transition: all 400ms ease-in-out;
+  }
+
+  p {
+    color: black;
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+    color: rgb(196, 196, 196);
+  }
+  .text-gradient {
+    background: rgb(7, 10, 99);
+    background: linear-gradient(
+      90deg,
+      rgba(7, 10, 99, 1) 0%,
+      rgba(159, 7, 7, 1) 21%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 450%;
+    background-position: 0%;
+  }
+</style>
